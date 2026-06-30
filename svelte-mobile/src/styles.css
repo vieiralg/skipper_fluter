@@ -1,0 +1,152 @@
+:root {
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  color: #f8f3d6;
+  background: #07131d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow: hidden;
+}
+
+.page-shell {
+  width: 100vw;
+  height: 100vh;
+  padding: clamp(10px, 2vw, 24px);
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 18% 18%, rgba(255, 212, 74, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 22%, rgba(76, 191, 255, 0.22), transparent 28%),
+    linear-gradient(135deg, #07131d 0%, #102a3a 52%, #163c4b 100%);
+  background-size: 18px 18px, 18px 18px, auto, auto, auto;
+}
+
+.game-shell {
+  width: min(100%, calc((100vh - 48px) * 1.82));
+  max-width: 1780px;
+  height: min(100%, calc((100vw - 48px) / 1.82));
+  min-height: 320px;
+  padding: clamp(10px, 1.8vw, 22px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(8px, 1.2vw, 14px);
+  border: clamp(4px, 0.7vw, 8px) solid #071019;
+  outline: 3px solid #e8d189;
+  outline-offset: -10px;
+  background: #102631;
+  box-shadow:
+    0 0 0 4px #284f62,
+    0 18px 0 #071019,
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.08);
+  image-rendering: pixelated;
+}
+
+.arcade-header {
+  min-height: 34px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 3px solid #071019;
+  background: linear-gradient(180deg, #2f5f73, #1d4052);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.28);
+  color: #ffcf36;
+  font-size: clamp(0.72rem, 1.2vw, 1rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #8b4513;
+}
+
+.status-lights {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 5px;
+}
+
+.status-lights span {
+  width: 12px;
+  height: 12px;
+  display: block;
+  box-shadow: 2px 2px 0 #071019;
+}
+
+.status-lights span:nth-child(1) {
+  background: #ff4f4f;
+}
+
+.status-lights span:nth-child(2) {
+  background: #ffcf36;
+}
+
+.status-lights span:nth-child(3) {
+  background: #67d97b;
+}
+
+.game-title {
+  margin-left: 4px;
+}
+
+.tag {
+  margin-left: auto;
+  color: #cfe7f0;
+  font-size: 0.72em;
+  text-shadow: 2px 2px 0 #071019;
+}
+
+.game-frame {
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(8px, 1.2vw, 14px);
+  border: 4px solid #e8d189;
+  background:
+    linear-gradient(45deg, rgba(255, 207, 54, 0.15) 25%, transparent 25% 50%, rgba(255, 207, 54, 0.15) 50% 75%, transparent 75%) 0 0 / 18px 18px,
+    #071019;
+  box-shadow:
+    inset 0 0 0 5px #102631,
+    inset 0 0 0 9px #284f62;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #000;
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    padding: 8px;
+  }
+
+  .game-shell {
+    width: 100%;
+    height: min(100%, calc((100vw - 16px) / 1.82));
+    outline-offset: -7px;
+  }
+
+  .tag {
+    display: none;
+  }
+}
